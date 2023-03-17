@@ -1,0 +1,140 @@
+html {
+	font-family: Tahoma, sans-serif;
+	line-height: 1.5;
+
+	--accent: hsl(180, 42%, 58%);
+
+	--backdrop: #eee;
+	--onBackdrop: #444;
+	--onBackdropSoft: #aaa;
+
+	--contrast: #444;
+	--contrast-lighter: #666;
+	--contrast-lightest: #555;
+	--onContrast: #fff;
+}
+
+html {
+	background-color: var(--backdrop);
+	color: var(--onBackdrop);
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+	flex: none;
+}
+
+#App {
+	text-align: center;
+}
+
+canvas {
+	width:  250px;
+	height: 250px;
+	box-shadow: 0 0 10px #0006;
+
+	image-rendering: pixelated;
+}
+
+a, button {
+	font: inherit;
+
+	border: none;
+	background-color: var(--contrast);
+	color: var(--onContrast);
+
+	height: 2.5em;
+	border-radius: 100vh;
+
+	cursor: pointer;
+	transition: background-color .1s;
+}
+
+button {
+	padding-inline: 1em;
+}
+
+a {
+	display: inline-grid;
+	place-items: center;
+	width: 2.5em;
+}
+
+a:hover, button:hover {
+	background-color: var(--contrast-lighter);
+}
+
+a:active, button:active {
+	background-color: var(--contrast-lightest);
+}
+
+small {
+	color: var(--onBackdropSoft);
+	font-size: 80%;
+}
+
+input, select {
+	font-family: inherit;
+	font-size: 100%;
+
+	height: 2.5em;
+	width: min(20em, 100%);
+	background-color: transparent;
+	color: inherit;
+
+	border: 1px solid var(--onBackdropSoft);
+	border-radius: .3em;
+
+	padding: .5em;
+
+	outline: transparent solid 2px;
+	outline-offset: -2px;
+	transition: border-color .1s, outline-color .1s;
+}
+
+input:focus, select:focus {
+	border-color: var(--accent);
+	outline-color: var(--accent);
+}
+
+/* layout */
+#App {
+	margin: auto;
+	padding: 1em;
+	min-height: 100%;
+
+	display: grid;
+	grid-template-columns: min-content 1fr;
+	align-items: center;
+	gap: 2em;
+	max-width: 700px;
+}
+
+section {
+	width: 100%;
+}
+
+@media (max-width: 600px) {
+	#App {
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	section:first-of-type {
+		border-bottom: 1px solid var(--onBackdropSoft);
+		padding-bottom: 1em;
+	}
+	
+	section:last-of-type {
+		padding-top: 1em;
+	}
+}

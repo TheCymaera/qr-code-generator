@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- info -->
+	<title>QR Code Generator</title>
+	<meta name="description" content="Easy Generator for QR Codes."/>
+	<link rel="canonical" href="https://heledron.com/tools/qr-code-generator/"/>
+	<meta property="og:image" content="https://heledron.com/tools/qr-code-generator/thumbnail.webp"/>
+	<meta name="author" content="Morgan"/>
+	<meta name="keywords" content="Heledron, Hadron, Cymaera, Eye, Snellen, Chart, Test, Exam, Visual, Acuity"/>
+	<link rel="icon" href="/favicon.png" type="image/png"/>
+
+	<!-- scripts -->
+	<script type="module" src="./src/main.ts"></script>
+</head>
+<body>
+	<div id="App">
+		<section>
+			<canvas></canvas>
+
+			<div style="margin-top: 1em; display: flex; justify-content: center; gap: .5em">
+				<button id="downloadRaster" title="Download PNG"><i style="margin-right: .5em"></i> PNG</button>
+				<button id="downloadSVG" title="Download SVG"><i style="margin-right: .5em"></i> SVG</button>
+			</div>
+		</section>
+
+		<section>
+			<label for="text">Text</label> <br />
+			<input type="text" id="text" value="https://heledron.com/"/> <br />
+	
+			<br/>
+	
+			<label for="ecc">Error Correction Level</label> <br />
+			<select id="ecc" value="MEDIUM">
+				<option value="L">Low (7% )</option>
+				<option value="M">Medium (15%)</option>
+				<option value="Q">Quartile (25%)</option>
+				<option value="H">High (30%)</option>
+			</select> <br />
+	
+			<br/>
+	
+			<label for="margin">Margin</label> <br />
+			<input type="text" id="margin" value="1"/> <br />
+	
+			<br/>
+	
+			<label for="imageScale">Image Scale</label> <br />
+			<input type="text" id="imageScale" value="1"/> <br />
+			<small>Resolution: (<span id="resolutionDisplay"></span>)</small>
+		</section>
+	</div>
+	<div style="
+		position: fixed;
+		bottom: .5em;
+		right: .5em;
+		display: flex;
+		flex-direction: column;
+		gap: .5em;
+	">
+		<a id="github" title="GitHub" href="https://github.com/TheCymaera/qr-code-generator" target="_blank"></a>
+		<a id="home" title="Home" href="/"></a>
+	</div>
+</body>
+</html>
